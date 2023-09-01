@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .account {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-top: 0;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="account">
+            <h2>Account Detail</h2>
+            <p><strong>Account Number:</strong> {{ account.account_number }}</p>
+            <p><strong>Owner:</strong> {{ account.owner.name }} {{ account.owner.surname }}</p>
+            <p><strong>Balance:</strong> {{ account.balance }} {{ account.currency }}</p>
+        </div>
+    </div>
+</body>
+</html>

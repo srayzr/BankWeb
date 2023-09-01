@@ -1,0 +1,74 @@
+</head>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        select, input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="account-form">
+            <h2>Create Account</h2>
+            <form method="post">
+                {% csrf_token %}
+                <label for="owner">Owner:</label>
+                <select name="owner" id="owner">
+                    {% for person in persons %}
+                        <option value="{{ person.id }}">{{ person.name }} {{ person.surname }}</option>
+                    {% endfor %}
+                </select><br><br>
+                
+                <label for="balance">Initial Balance:</label>
+                <input type="number" name="balance" id="balance" step="0.01"><br><br>
+                
+                <label for="currency">Currency:</label>
+                <select name="currency" id="currency">
+                    <option value="AMD">AMD</option>
+                    <option value="RUB">RUB</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                </select><br><br>
+                
+                <button type="submit">Create Account</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
